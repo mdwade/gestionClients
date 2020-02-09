@@ -10,5 +10,7 @@ Après importation du projet et de la base de données, démarrez le serveur d'a
 ```
 https://localhost:9000/gestionClients
 ```
+pour ouvrir la page d'accueil.
 
-pour ouvrir la page d'accueil
+## A noter
+A la racine du projet, vous trouverez un script gestionUtilisateur.sql pour créer la base de données
