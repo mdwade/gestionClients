@@ -1,0 +1,31 @@
+body
+	{
+		background: url('../img/client-background.png') no-repeat center center fixed;
+		-webkit-background-size: cover;
+ 		-moz-background-size: cover;
+  		-o-background-size: cover;
+		background-size: cover;
+	}
+	
+	.txt-shadow
+	{
+		text-shadow:1px 1px 0 #444;
+	}
+	
+	.footer {
+	  position: fixed;
+	  left: 0;
+	  bottom: 0;
+	  width: 100%;
+	  color: white;
+	  text-align: center;
+	}
+	
+	.vertical-center {
+	  
+	  position: absolute;
+	  top: 45%;
+	  left: 10%;
+	  -ms-transform: translateY(-50%);
+	  transform: translateY(-50%);
+	}

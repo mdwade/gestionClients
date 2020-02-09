@@ -1,0 +1,32 @@
+h1, h3, a 
+	{
+		text-shadow:1px 1px 0 #444;
+	}
+	
+	
+	a
+	{
+		text-decoration: none;
+		margin-left: 20px;
+	}
+	
+	table {
+	  border-collapse: collapse;
+	  width: 90% !important;
+	  margin-left: 5%
+	}
+	
+	table, th {
+	  border: 1px solid black;
+	}	
+	
+	th{
+		height: 50px;
+		align-text: center;
+		background-color: gray;
+		color: white
+	}
+	
+	td{
+		padding: 10px;
+	}
