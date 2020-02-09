@@ -2,9 +2,18 @@
 Technologie utilisée : <b>```JEE```</b> </br>
 Serveur d'application : <b>```TOMCAT```</b>
 
-Le projet consiste à créer une plateforme de gestion client sous <b>```JEE```</b>. </br>
+Le projet consiste à créer une plateforme de gestion client sous <b>```JEE```</b>.
 Implémentation des opérations <b>```CRUD```</b>, interaction avec une base de données <b>```SQL```</b> via <b>```JDBC```</b>. 
 
+## Architecture du projet
+Pour une meilleure structuration, l'application est découpée en couches qui correspondent à nos packages. Nous avons 5 packages :
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
 
 
 ## A noter
