@@ -1,8 +1,8 @@
 # Application de gestion client
-Technologie utilisée : <b>```JEE```</b>
+Technologie utilisée : <b>```JEE```</b> </br>
 Serveur d'application : <b>```TOMCAT```</b>
 
-Le projet consiste à créer une plateforme de gestion client sous <b>```JEE```</b>.
+Le projet consiste à créer une plateforme de gestion client sous <b>```JEE```</b>. </br>
 Implémentation des opérations <b>```CRUD```</b>, interaction avec une base de données <b>```SQL```</b> via <b>```JDBC```</b>. 
 
 
