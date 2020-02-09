@@ -1,2 +1,2 @@
-# gestionClients
-Mini app de gestion client en JEE
+# Application de gestion client
+Technologie utilisée : JEE
