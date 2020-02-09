@@ -6,13 +6,13 @@ Le projet consiste à créer une plateforme de gestion client sous <b>```JEE```<
 Implémentation des opérations <b>```CRUD```</b>, interaction avec une base de données <b>```SQL```</b> via <b>```JDBC```</b>. 
 
 ## Architecture du projet
-Pour une meilleure structuration, l'application est découpée en couches qui correspondent à nos packages. Nous avons 5 packages :
+Pour une meilleure structuration du codes, l'application est découpée en couches qui correspondent à nos packages. Nous avons 5 packages :
 <ul>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
-  <li></li>
+  <li>```Beans``` : contient les classes entité ou model de l'application</li>
+  <li>```Dao``` : contient les classes qui nous permettent de communiquer avec notre base de données. En d'autres termes cette couche est chargée de persister les données dans la base de données.</li>
+  <li>```Metier``` : les classes de cette couche servent à vérifier les données entrées avant leur persistance en base.  </li>
+  <li>```Servlets``` : les classes de cette couche sont les controlleurs. Ils permettent de lier le model et la vue.</li>
+  <li>```Exception``` : sert à la gestion des exceptions.</li>
 </ul>
 
 
