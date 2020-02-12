@@ -42,12 +42,12 @@
 				<th> Email </th>
 				<th> Téléphone </th>
 				<th> Adresse </th>
-				<th colspan="2"> Actions </th>
+				<th colspan="2" class="action"> Actions </th>
 			</tr>
 		</thead>
 		<tbody>	
 			<c:if test="${ listUtilisateur.size() == 0}">
-				<p> La liste des utilisateurs est vide ! </p>
+				<p class="emptyMsg"> La liste des clients est vide ! </p>
 			</c:if>		
 			<c:forEach var="u" items="${ listUtilisateur }">
 				<tr>
@@ -57,8 +57,8 @@
 					<td> ${ u.getEmail() }</td>
 					<td> ${ u.getTelephone() }</td>
 					<td> ${ u.getAdresse() } </td>
-					<td class="w3-center"><a href="/gestionClients/client/update?id=${ u.getId() }" class="w3-btn w3-blue w3-round-large">Modifier</a></td>
-					<td class="w3-center"><a href="/gestionClients/client/delete?id=${ u.getId() }" class="w3-btn w3-red w3-round-large">Supprimer</a></td>
+					<td class="w3-center"><a href="/gestionClients/client/update?id=${ u.getId() }" class="w3-btn w3-blue w3-round-large w3-large"><i class="fa fa-edit"></i></a></td>
+					<td class="w3-center"><a href="/gestionClients/client/delete?id=${ u.getId() }" onclick="return confirm('Êtes vous sûr de vouloir supprimer ?')" class="w3-btn w3-red w3-round-large w3-large"><i class="fa fa-trash"></i></a></td>
 				</tr>
 			</c:forEach>	
 		</tbody>

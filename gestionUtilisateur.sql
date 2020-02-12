@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 09, 2020 at 05:13 PM
+-- Generation Time: Feb 10, 2020 at 05:08 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `clients` (
   `id` int(11) NOT NULL,
-  `nom` varchar(20) NOT NULL,
-  `prenom` varchar(20) NOT NULL,
-  `email` varchar(20) NOT NULL,
+  `nom` varchar(40) NOT NULL,
+  `prenom` varchar(40) NOT NULL,
+  `email` varchar(50) NOT NULL,
   `telephone` varchar(13) NOT NULL,
   `adresse` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -42,8 +42,8 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `nom`, `prenom`, `email`, `telephone`, `adresse`) VALUES
-(1, 'Mbaye', 'Ibrahim', 'mdwade37@gmail.com', '774741742', 'senegal'),
-(28, 'Seck', 'Yaya', 'yayoseck@outlook.fr', '776899009', 'Marinas, Hann Bel Air');
+(1, 'Wade', 'Mouhamed', 'mdwad97@gmail.com', '782816068', 'Grand Thies'),
+(2, 'Kanouté', 'Alioune', 'aliounekanoute@gmail.com', '781819098', 'Yoff');
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,7 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `utilisateurs`

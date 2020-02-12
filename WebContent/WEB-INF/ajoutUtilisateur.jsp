@@ -28,14 +28,14 @@
 	
 		<form method="post">
 			<div class="container">
-			
-					<div class="row">
+					
+					<div class="row">	
 						<div class="col-25">
 							<label for="fname">Nom</label>
 						</div>
 						<div class="col-75">
 							<input type="text" id="fname" name="nom"
-								value="${ nom }" placeholder="Tapez le nom...">
+								value="${ nom }" placeholder="Tapez le nom..." required>
 						</div>
 					</div>
 					<div class="row">
@@ -44,7 +44,7 @@
 						</div>
 						<div class="col-75">
 							<input type="text" id="lname" name="prenom"
-								value="${ prenom }" placeholder="Tapez le prenom...">
+								value="${ prenom }" placeholder="Tapez le prenom..." required>
 						</div>
 					</div>
 					
@@ -54,7 +54,7 @@
 						</div>
 						<div class="col-75">
 							<input type="text" id="fname" name="email" 
-								value="${ email }" placeholder="Tapez l'adresse email...">
+								value="${ email }" placeholder="Tapez l'adresse email..." required>
 								<span class="erreur"><i>${erreurs['emailFormatError']}</i></span>
 								<span class="erreur"><i>${erreurs['emailAlreadyExistError']}</i></span>
 						</div>
@@ -66,7 +66,7 @@
 						</div>
 						<div class="col-75">
 							<input type="text" id="lname" name="telephone" 
-								value="${ telephone }" placeholder="Tapez le numéro...">
+								value="${ telephone }" placeholder="Tapez le numéro..." required>
 								<span class="erreur"><i>${erreurs['telephoneFormatError']}</i></span>
 								<span class="erreur"><i>${erreurs['telephoneAlreadyExistError']}</i></span>
 						</div>
@@ -78,7 +78,7 @@
 						</div>
 						<div class="col-75">
 							<input type="text" id="lname" name="adresse" 
-								value="${ adresse }" placeholder="Tapez l'adresse...">
+								value="${ adresse }" placeholder="Tapez l'adresse..." required>
 						</div>
 					</div>
 					
@@ -86,7 +86,7 @@
 						<input type="submit" value="Enregistrer">
 					</div>
 					
-				
+					<span class="erreur"><i>${erreurs['emptyFieldError']}</i></span>
 			
 			</div>			
 		</form>

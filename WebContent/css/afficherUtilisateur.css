@@ -27,6 +27,16 @@ h1, h3, a
 		color: white
 	}
 	
+	th .action{
+		width: 10px !important
+	}
+	
 	td{
 		padding: 10px;
+	}
+	
+	.emptyMsg{
+		margin-left: 5%;
+		color: #2196F3;
+		font-size: 15px
 	}

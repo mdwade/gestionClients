@@ -22,16 +22,16 @@ import metier.MetierClients;
 @WebServlet({"/client/add", "/client/list", "/client/delete", "/client/update"})
 public class AjoutClient extends HttpServlet 
 {
-	private static final long serialVersionUID                          = 1L;
-	public  static ArrayList<Client> listUser                           = new ArrayList<Client>();
+	private static final long serialVersionUID                          =   1L;
+	public  static ArrayList<Client> listUser                           =   new ArrayList<Client>();
 	
-	private static final String VUE_AJOUT_UTILISATEUR                   = "/WEB-INF/ajoutUtilisateur.jsp";
-	private static final String VUE_LIST_UTILISATEUR                    = "/WEB-INF/afficherListUtilisateur.jsp";
-	public  static final String TELEPHONE_FORMAT_ERROR_MESSAGE          = "Le numéro de téléphone saisi est incorrecte! Exemple de format accepté : 776280010 ou +221776280010.";
-	public  static final String TELEPHONE_ALREADY_EXIST_ERROR_MESSAGE   = "Ce numéro de téléphone existe déjà.";
-	public  static final String EMAIL_FORMAT_ERROR_MESSAGE              = "L'adresse email saisie est incorrecte! Exemple de format accepté : johndoe@gmail.com";
-	public  static final String EMAIL_ALREADY_EXIST_ERROR_MESSAGE       = "Cette adresse email existe déjà.";
-	
+	private static final String VUE_AJOUT_UTILISATEUR                   =   "/WEB-INF/ajoutUtilisateur.jsp";
+	private static final String VUE_LIST_UTILISATEUR                    =   "/WEB-INF/afficherListUtilisateur.jsp";
+	public  static final String TELEPHONE_FORMAT_ERROR_MESSAGE          =   "Le numéro de téléphone saisi est incorrecte! Exemple de format accepté : 776280010 ou +221776280010.";
+	public  static final String TELEPHONE_ALREADY_EXIST_ERROR_MESSAGE   =   "Ce numéro de téléphone existe déjà.";
+	public  static final String EMAIL_FORMAT_ERROR_MESSAGE              =   "L'adresse email saisie est incorrecte! Exemple de format accepté : johndoe@exemple.com";
+	public  static final String EMAIL_ALREADY_EXIST_ERROR_MESSAGE       =   "Cette adresse email existe déjà.";
+	public  static final String FIELD_IS_EMPTY_ERROR_MESSAGE            =   "Vérifier que vous avez rempli tous les champs.";
 	
 	
 	/**
@@ -50,7 +50,7 @@ public class AjoutClient extends HttpServlet
 				break;
 			
 			case "/client/list":
-				request.setAttribute("listUtilisateur", DaoClient.getClients());
+				request.setAttribute("listUtilisateur", DaoClient.getClients()); 
 				getServletContext().getRequestDispatcher(VUE_LIST_UTILISATEUR).forward(request, response);
 				
 				break;
@@ -103,7 +103,7 @@ public class AjoutClient extends HttpServlet
 			
 			case "/client/add":			
 				
-				erreurs = renderError("/client/add", telephone, email);
+				erreurs = renderError("/client/add", nom, prenom, telephone, email, adresse);
 				
 				if(erreurs.isEmpty()) 
 				{
@@ -128,7 +128,8 @@ public class AjoutClient extends HttpServlet
 				
 			case "/client/update":		
 				int id = Integer.parseInt(request.getParameter("id"));
-				erreurs = renderError("/client/update", telephone, email);
+				erreurs = renderError("/client/update", nom, prenom, telephone, email, adresse);
+				
 				
 				if(erreurs.isEmpty()) 
 				{
@@ -158,30 +159,42 @@ public class AjoutClient extends HttpServlet
 		
 	}
 	
-	public Map<String, String> renderError(String path, String telephone, String email) {
+	public Map<String, String> renderError(String path, String nom, String prenom, String telephone, String email, String adresse) {
 		
 		Map<String, String> erreurs   =  new HashMap<String, String>();
 		
 		if("/client/add".equals(path)) {
-			if(!MetierClients.validatePhoneNumber(telephone)) 
+			
+			if(MetierClients.checkIfEmpty(nom) || MetierClients.checkIfEmpty(prenom) || MetierClients.checkIfEmpty(adresse)) 
 			{
-				erreurs.put("telephoneFormatError", TELEPHONE_FORMAT_ERROR_MESSAGE);
+				erreurs.put("emptyFieldError", FIELD_IS_EMPTY_ERROR_MESSAGE);
 			}
 			
-			if(!MetierClients.CheckIfTelephoneExist(telephone, DaoClient.getClients())) 
+			else 
 			{
-				erreurs.put("telephoneAlreadyExistError", TELEPHONE_ALREADY_EXIST_ERROR_MESSAGE);
+				if(!MetierClients.validatePhoneNumber(telephone)) 
+				{
+					erreurs.put("telephoneFormatError", TELEPHONE_FORMAT_ERROR_MESSAGE);
+				}
+				
+				if(!MetierClients.CheckIfTelephoneExist(telephone, DaoClient.getClients())) 
+				{
+					erreurs.put("telephoneAlreadyExistError", TELEPHONE_ALREADY_EXIST_ERROR_MESSAGE);
+				}
+				
+				if(!MetierClients.validateEmailAddress(email))
+				{
+					erreurs.put("emailFormatError", EMAIL_FORMAT_ERROR_MESSAGE);
+				}
+				
+				if(!MetierClients.CheckIfEmailExist(email, DaoClient.getClients())) 
+				{
+					erreurs.put("emailAlreadyExistError", EMAIL_ALREADY_EXIST_ERROR_MESSAGE);
+				}
+
 			}
 			
-			if(!MetierClients.validateEmailAddress(email))
-			{
-				erreurs.put("emailFormatError", EMAIL_FORMAT_ERROR_MESSAGE);
-			}
 			
-			if(!MetierClients.CheckIfEmailExist(email, DaoClient.getClients())) 
-			{
-				erreurs.put("emailAlreadyExistError", EMAIL_ALREADY_EXIST_ERROR_MESSAGE);
-			}
 		}
 		else 
 		{
